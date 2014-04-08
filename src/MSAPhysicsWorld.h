@@ -29,7 +29,7 @@ namespace msa {
 			ConstraintT<T>*		addConstraint(ConstraintT<T> *c);
 			
 			ParticleT<T>*		getParticle(long i);
-			ParticleT<T>*		getParticleFromID(long i);
+			ParticleT<T>*		getParticleFromID(int id);
 			ConstraintT<T>*		getConstraint(long i);			// generally you wouldn't use this but use the ones below
 			SpringT<T>*			getSpring(long i);
 			AttractionT<T>*		getAttraction(long i);
