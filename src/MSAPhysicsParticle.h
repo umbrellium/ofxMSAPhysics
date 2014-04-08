@@ -35,7 +35,10 @@ namespace msa {
 			
 			ParticleT*		setRadius(float t = 15);
 			float			getRadius();
-			
+
+            ParticleT*      setId(int id);
+            int             getId();
+
 			// collision methods
 			ParticleT*		enableCollision();
 			ParticleT*		disableCollision();
@@ -98,6 +101,7 @@ namespace msa {
 			float			_drag;
 			float			_bounce;
 			float			_radius;
+            int             _id;
 			float			_age;
 			bool			_isDead;
 			bool			_isFixed;
@@ -173,7 +177,20 @@ namespace msa {
 		inline float ParticleT<T>::getRadius() {
 			return _radius;
 		}
-		
+
+        //--------------------------------------------------------------
+		template <typename T>
+		inline ParticleT<T>* ParticleT<T>::setId(int i) {
+			_id = i;
+			return this;
+		}
+
+        //--------------------------------------------------------------
+		template <typename T>
+		inline int ParticleT<T>::getId() {
+			return _id;
+		}
+
         //--------------------------------------------------------------
 		template <typename T>
 		inline bool ParticleT<T>::isFixed() {
