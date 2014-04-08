@@ -29,7 +29,7 @@ namespace msa {
 			ConstraintT<T>*		addConstraint(ConstraintT<T> *c);
 			
 			ParticleT<T>*		getParticle(long i);
-            ParticleT<T>*       getParticleFromID(int id);
+			ParticleT<T>*		getParticleFromID(long i);
 			ConstraintT<T>*		getConstraint(long i);			// generally you wouldn't use this but use the ones below
 			SpringT<T>*			getSpring(long i);
 			AttractionT<T>*		getAttraction(long i);
@@ -220,12 +220,12 @@ namespace msa {
         //--------------------------------------------------------------
 		template <typename T>
 		ParticleT<T>*		WorldT<T>::getParticleFromID(int id) {
-            for(long i=0; i< numberOfParticles(); i++){
-                if(_particles[i]->getId() == id){
-                    return _particles[i];
-                }
-            }
-            return NULL;
+			for(long i=0; i< numberOfParticles(); i++){
+				if(_particles[i]->getId() == id){
+					return _particles[i];
+				}
+			}
+			return NULL;
 		}
 
         //--------------------------------------------------------------
