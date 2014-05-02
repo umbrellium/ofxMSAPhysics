@@ -22,16 +22,13 @@ namespace msa {
 				setStrength(strength);
 				setRestLength(restLength);
 				setForceCap(0);
-                setID(0);
-			
+			}
 			
             ParticleT<T>* getParticleA();
             ofVec3f getParticlePositionA();
             ParticleT<T>* getParticleB();
 			ofVec3f getParticlePositionB();
             
-            void setID(int id);
-            int getID();
             
 			void setStrength(float s);
 			float getStrength();
@@ -41,7 +38,9 @@ namespace msa {
 			
 			void setRestLength(float l);
 			float getRestLength();
-
+            
+            void setID(int id);
+            int getID();
 			
 			
 		protected:
