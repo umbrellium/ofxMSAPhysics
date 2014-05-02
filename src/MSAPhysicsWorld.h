@@ -19,7 +19,7 @@ namespace msa {
 			~WorldT();
 			
 			ParticleT<T>*		makeParticle(T pos, float m = 1.0f, float d = 1.0f);
-			SpringT<T>*			makeSpring(ParticleT<T> *a, ParticleT<T> *b, float _strength, float _restLength);
+			SpringT<T>*			makeSpring(ParticleT<T> *a, ParticleT<T> *b, float _strength, float _restLength, int _id);
 			AttractionT<T>*		makeAttraction(ParticleT<T> *a, ParticleT<T> *b, float _strength);
 			
 			// this method retains the particle, so you should release() it after adding (obj-c style)
@@ -145,9 +145,9 @@ namespace msa {
 		
         //--------------------------------------------------------------
 		template <typename T>
-		SpringT<T>* WorldT<T>::makeSpring(ParticleT<T> *a, ParticleT<T> *b, float _strength, float _restLength) {
+		SpringT<T>* WorldT<T>::makeSpring(ParticleT<T> *a, ParticleT<T> *b, float _strength, float _restLength, int _id) {
 			if(a==b) return NULL;
-			SpringT<T>* c = new SpringT<T>(a, b, _strength, _restLength);
+			SpringT<T>* c = new SpringT<T>(a, b, _strength, _restLength, _id);
 			addConstraint(c);
 			c->release();	// cos addConstraint(c) retains it
 			return c;
