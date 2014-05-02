@@ -13,7 +13,7 @@ namespace msa {
 		public:
 			friend class WorldT<T>;
 			
-			SpringT(ParticleT<T>* a, ParticleT<T>* b, float strength, float restLength) {
+			SpringT(ParticleT<T>* a, ParticleT<T>* b, float strength, float restLength ) {
 				this->_a	= a;
 				this->_b	= b;
 				this->_type = kConstraintTypeSpring;
@@ -29,6 +29,8 @@ namespace msa {
             ParticleT<T>* getParticleB();
 			ofVec3f getParticlePositionB();
             
+            void setID(int id);
+            int getID();
             
 			void setStrength(float s);
 			float getStrength();
@@ -38,9 +40,7 @@ namespace msa {
 			
 			void setRestLength(float l);
 			float getRestLength();
-            
-            void setID(int id);
-            int getID();
+
 			
 			
 		protected:
