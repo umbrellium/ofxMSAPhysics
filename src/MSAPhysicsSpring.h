@@ -24,7 +24,12 @@ namespace msa {
 				setForceCap(0);
 			}
 			
-			
+            ParticleT<T>* getParticleA();
+            ofVec3f getParticlePositionA();
+            ParticleT<T>* getParticleB();
+			ofVec3f getParticlePositionB();
+            
+            
 			void setStrength(float s);
 			float getStrength();
 			
@@ -64,6 +69,34 @@ namespace msa {
 			
 		};
 		
+        //--------------------------------------------------------------
+		template <typename T>
+		inline ParticleT<T>* SpringT<T>::getParticleA() {
+			//_strength = s;
+            return this->_a;
+		}
+        
+        //--------------------------------------------------------------
+		template <typename T>
+		inline ofVec3f SpringT<T>::getParticlePositionA() {
+			//_strength = s;
+            return this->_a->getPosition();
+		}
+        
+        //--------------------------------------------------------------
+		template <typename T>
+		inline ParticleT<T>* SpringT<T>::getParticleB() {
+			//_strength = s;
+            return this->_b;
+		}
+        
+        //--------------------------------------------------------------
+		template <typename T>
+		inline ofVec3f SpringT<T>::getParticlePositionB() {
+			//_strength = s;
+            return this->_b->getPosition();
+		}
+        
 		
         //--------------------------------------------------------------
 		template <typename T>
