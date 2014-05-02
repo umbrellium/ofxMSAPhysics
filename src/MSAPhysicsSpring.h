@@ -38,13 +38,16 @@ namespace msa {
 			
 			void setRestLength(float l);
 			float getRestLength();
+            
+            void setID(int id);
+            int getID();
 			
 			
 		protected:
 			float _restLength;
 			float _strength;
 			float _forceCap;
-			
+			int ID;
 			
 			void solve() {
 				T delta = this->_b->getPosition() - this->_a->getPosition();
@@ -97,13 +100,24 @@ namespace msa {
             return this->_b->getPosition();
 		}
         
-		
+        //--------------------------------------------------------------
+		template <typename T>
+		inline void SpringT<T>::setID(int id) {
+			ID = id;
+		}
+        
+        //--------------------------------------------------------------
+		template <typename T>
+		inline int SpringT<T>::getID() {
+			return ID;
+		}
+        
         //--------------------------------------------------------------
 		template <typename T>
 		inline void SpringT<T>::setStrength(float s) {
 			_strength = s;
 		}
-		
+        
         //--------------------------------------------------------------
 		template <typename T>
 		inline float SpringT<T>::getStrength() {
