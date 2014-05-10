@@ -22,7 +22,7 @@ namespace msa {
 			ParticleT(ParticleT &p);
 			
 			virtual void	init(T pos, float m = 1.0f, float d = 1.0f);
-			
+			            
 			ParticleT*		setMass(float t = 1);
 			float			getMass();
 			float			getInvMass();
