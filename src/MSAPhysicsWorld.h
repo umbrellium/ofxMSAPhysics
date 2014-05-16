@@ -32,6 +32,7 @@ namespace msa {
 			ParticleT<T>*		getParticleFromID(int id);
 			ConstraintT<T>*		getConstraint(long i);			// generally you wouldn't use this but use the ones below
 			SpringT<T>*			getSpring(long i);
+            SpringT<T>*			getSpringFromID(long id);
             
 			AttractionT<T>*		getAttraction(long i);
 			
@@ -240,6 +241,19 @@ namespace msa {
 		SpringT<T>*		WorldT<T>::getSpring(long i) {
 			return i < numberOfSprings() ? (SpringT<T>*)_constraints[kConstraintTypeSpring][i] : NULL;
 		}
+        
+        //--------------------------------------------------------------
+		template <typename T>
+		SpringT<T>*	 WorldT<T>::getSpringFromID(long id) {
+			for(long i=0; i< numberOfSprings(); i++){
+				if(_constraints[kConstraintTypeSpring]->getId() == id){
+					return _constraints[kConstraintTypeSpring];
+				}
+			}
+			return NULL;
+		}
+        
+
 		
         //--------------------------------------------------------------
 		template <typename T>
