@@ -26,6 +26,11 @@ namespace msa {
 			ParticleT*		setMass(float t = 1);
 			float			getMass();
 			float			getInvMass();
+            
+            void            resetDelay();
+			int             getDelay();
+            
+            
 			
 			ParticleT*		setDrag(float t = 1);
 			float			getDrag();
@@ -102,6 +107,9 @@ namespace msa {
 			float			_bounce;
 			float			_radius;
 			int			_id;
+            
+            int             _defaultDelay = 100;
+            int             _delay;
 			float			_age;
 			bool			_isDead;
 			bool			_isFixed;
@@ -115,6 +123,20 @@ namespace msa {
 		};
 		
 		
+        
+        //--------------------------------------------------------------
+		template <typename T>
+		inline void ParticleT<T>::resetDelay() {
+			_delay = _defaultDelay;
+		}
+        
+        //--------------------------------------------------------------
+		template <typename T>
+		inline int ParticleT<T>::getDelay() {
+            _delay --;
+			return _delay;
+		}
+        
 		
         //--------------------------------------------------------------
 		template <typename T>
@@ -333,7 +355,7 @@ namespace msa {
 			_age = 0;
 			verbose = true;
 			data = NULL;
-			
+			_delay = _defaultDelay;
 			collisionPlane = -1;
 			
 			setClassName("ParticleT");
